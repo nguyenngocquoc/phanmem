@@ -1,0 +1,49 @@
+
+
+<br>
+<TABLE width="100%">
+	<?php 
+		$APP_IMAGES = "../images/";
+	?>
+
+	<!-- The Page Header -->
+	
+	<?php 
+		if (isset($_SESSION['name']))
+		{
+			print("<tr>");
+			echo "<th class='info' align='left'>User: " . $_SESSION['name'] . "<br>";
+			echo "Userid: " . $_SESSION['uid'] . "<br>";
+			echo "Role: ";
+			
+			switch($_SESSION['roleid']) 
+			{ 
+				case 1: 
+					print "Administrator"; 
+					break; 
+				case 2: 
+					print "Teacher"; 
+					break; 
+				case 3: 
+					print "Student"; 
+					break; 
+			}
+
+			echo "</th>";
+			echo "</tr>";
+		}
+	?>
+	<tr>
+		<th class="nav" align="center"><img src="<?php echo $APP_IMAGES ?>logo.jpg" width="200" height="150"></th>
+	</tr>
+</table>
+<div align="center">
+<font color="#08245b"><span style="font-weight: 700; font-size: 14pt">
+<marquee behavior="alternate">WELCOME TO COMPUTER SCIENCE DEPARTMENT F.C.E - YOLA N.C.E REGISTRATION SITE</marquee></span></font></div>
+<div align="center">
+<i><font size="2" color="#000000">... Networking the world</font></i></div>
+<br>
+<br>
+<i><font size="3" color="#000000">N.C.E</font></i></div>
+<br>
+<br>
