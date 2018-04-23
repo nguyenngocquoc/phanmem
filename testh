@@ -1,0 +1,39 @@
+
+package testserializable;
+
+import java.io.*;
+public class Testserializable implements Serializable {
+private final String name;
+private final int age;
+private final String sex;
+private final boolean chip;
+public Testserializable(String name,int age,String sex,boolean chip){
+this.name=name;
+this.age=age;
+this.sex=sex;
+this.chip=chip;
+}
+public String getname(){return name;}
+public int getage(){return age;}
+public String getsex(){return sex;}
+public boolean getchip(){return chip;}
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+      Testserializable[] test1 ;
+     test1 = new Testserializable[2];
+       test1[0]=new Testserializable("hoang",19,"nam",true);
+      test1[1]=new Testserializable("anh",29,"nam",true);
+    try (ObjectOutputStream dog = new ObjectOutputStream(new FileOutputStream("C:\\Users\\Dell\\Desktop\\dog.list"))) {
+        for(int i=0 ;i< test1.length;++i){
+            dog.writeObject(test1[i]);
+        }
+        dog.close();
+        ObjectInputStream infile = new ObjectInputStream(new FileInputStream("C:\\Users\\Dell\\Desktop\\dog.list"));
+        for(int i=0;i<2;i++){
+        Testserializable d = (Testserializable)infile.readObject();
+        System.out.println(d.getchip()+" ,"+d.getname());
+        }
+    }
+    
+    }
+    
+}
